@@ -1,14 +1,13 @@
 <?php
 // PHP code goes here
-
+  
  if (isset($_POST['submit'])) {
 $module = $_POST['module'];
  $semester = $_POST['semester'];
  $text = $_POST['text'];
  $rating = $_POST['rating'];
 // load previous XML from file
- $xml = simplexml_load_file("./data/feedbacks.xml") or die("ERROR: Cannot
-load Feedbacks.xml.");
+ $xml = simplexml_load_file("./data/feedbacks.xml") or die("ERROR: Cannot load Feedbacks.xml.");
 
  // add a new feedback node
  $feedback = $xml->addChild('feedback');
@@ -20,10 +19,10 @@ load Feedbacks.xml.");
  $feedback->addChild('rating', $rating);
 // save the whole modified XML
  $xml->asXml('./data/feedbacks.xml');
-// Display thank you
+    // Display thank you
  header("Location: ../thankyou.html");
 } else {
  // nothing happened -- go back to feedback form
  header("Location: ../index.html");
-}
+  }
 ?>
